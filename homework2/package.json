@@ -1,0 +1,19 @@
+{
+  "name": "homework2",
+  "version": "1.0.0",
+  "description": "Learning MVC",
+  "scripts": {
+    "serve": "live-server"
+  },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
+  }
+}
