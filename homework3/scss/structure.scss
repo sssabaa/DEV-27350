@@ -1,0 +1,64 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    font-family: sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+    margin-bottom: 16px;
+}
+
+#app {
+    text-align: justify;
+    padding: 0 1em 4em 1em;
+    //padding: 5em;
+}
+
+#app h1 {
+    font-size: 3em;
+}
+#app h1,
+h3 {
+    text-align: center;
+}
+
+#bread-crumb {
+    padding: 2em 0 0 1em;
+}
+
+#logo img {
+    border-radius: 50%;
+    max-width: 150px;
+    display: block;
+    margin: 0 auto;
+}
+
+#content img {
+    max-width: 600px;
+    display: block;
+    margin: 0 auto;
+    padding: 2em;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    padding-top: 1em;
+}
