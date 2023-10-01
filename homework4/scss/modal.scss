@@ -1,0 +1,35 @@
+#modal {
+    position: fixed;
+    background-color: rgba($color: black, $alpha: 0.7);
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .modal-content-holder {
+        min-height: 300px;
+        min-width: 300px;
+        max-width: 60%;
+        background-color: white;
+        border-radius: 30px;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #close-btn {
+        align-self: flex-end;
+        width: 20px;
+        text-align: center;
+        padding: 3px;
+        margin: 30px;
+        cursor: pointer;
+        margin: 0;
+        background-color: maroon;
+        color: white;
+    }
+}
