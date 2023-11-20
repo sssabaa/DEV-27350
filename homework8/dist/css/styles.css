@@ -1,0 +1,437 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  font-family: sans-serif;
+  position: relative;
+  background: url("/images/homeBackground.png") center center/cover no-repeat;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px;
+}
+
+.nav-holder {
+  height: 50px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 6;
+  font-size: 25px;
+  padding: 50px;
+}
+
+.nav-holder a {
+  text-decoration: none;
+}
+
+.footer ul,
+nav ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.footer ul a,
+nav ul a {
+  color: black;
+}
+
+.footer ul li,
+nav ul li {
+  margin-left: 10px;
+  padding: 5px;
+  transition: 0.2s;
+}
+
+nav ul li:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+}
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 35px;
+  background-color: #ffd972;
+  padding: 10px 30px 10px 50px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger-icon div {
+  width: 35px;
+  height: 3px;
+  background-color: black;
+  margin: 6px 0;
+  transition: 0.3s;
+}
+
+.open .bar1 {
+  transform: rotate(-45deg) translate(-6px, 6px);
+  transition: 0.3s;
+}
+
+.open .bar2 {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.open .bar3 {
+  transform: rotate(+45deg) translate(-6px, -6px);
+  transition: 0.3s;
+}
+
+.open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  left: 0;
+  height: calc(100vh - 50px);
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.mobile-menu li {
+  margin-bottom: 10px;
+}
+
+/* Home */
+
+.content {
+  position: fixed;
+  background-color: #f25c5490;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  width: 600px;
+  height: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.circle1 {
+  width: 350px;
+  height: 350px;
+  background-color: #ffd972;
+  border-radius: 50%;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px;
+  text-align: center;
+}
+
+.circle2 {
+  width: 170px;
+  height: 170px;
+  background-color: #fcbcb8;
+  border-radius: 50%;
+  position: absolute;
+  top: 80px;
+  left: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  padding: 30px;
+  text-align: center;
+}
+
+.footer {
+  height: 50px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  font-size: 12px;
+  color: black;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+/* View Recipe */
+
+.recipePage {
+  position: absolute;
+  background: url("/images/viewRecipe.png") center center/cover no-repeat;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  top: 0;
+}
+
+.viewRecipe {
+  padding-top: 100px;
+  padding-left: 30px;
+}
+
+.recipeHolder {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.recipe {
+  width: 700px;
+  min-height: 200px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe .imageHolder {
+  width: 300px;
+  height: 263px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.recipe .imageHolder img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.titleDesc {
+  background-color: white;
+  width: 224px;
+  height: 263px;
+  border-radius: 20px;
+  text-align: center;
+  padding: 20px 20px 0 20px;
+  font-family: Lato Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.titleDesc p {
+  font-size: 12px;
+}
+
+.recipeTimeDesc {
+  background-image: url("data:image/svg+xml,%3Csvg id='time' xmlns='http://www.w3.org/2000/svg' width='22.998' height='24.46' viewBox='0 0 22.998 24.46'%3E%3Cpath id='Path_1' data-name='Path 1' d='M29.359,28.518a1.451,1.451,0,0,0,1.062-.595l3.817-5.277a.408.408,0,0,0-.57-.57L28.391,25.9a1.453,1.453,0,0,0,.854,2.627C29.283,28.523,29.321,28.521,29.359,28.518Zm-.748-1.5a.636.636,0,0,1,.26-.466l3.219-2.329-2.328,3.218a.637.637,0,0,1-1.151-.424Z' transform='translate(-17.194 -13.032)'/%3E%3Cpath id='Path_2' data-name='Path 2' d='M36.121,7.976c0-.009,0-.018-.009-.026s-.013-.013-.018-.02a11.083,11.083,0,0,0-1.453-1.96l.876-.875.576.576,1.729-1.73L36.093,2.211,34.363,3.94l.577.577-.876.875A11.07,11.07,0,0,0,32.1,3.938c-.008-.005-.012-.013-.02-.018s-.018,0-.026-.009A10.93,10.93,0,0,0,27.87,2.524V2.038h.611a1.019,1.019,0,1,0,0-2.038H24.812a1.019,1.019,0,0,0,0,2.038h.611V2.51a11.213,11.213,0,0,0-1.314.218.408.408,0,1,0,.182.795,10.367,10.367,0,0,1,1.133-.194l.437-.034c.134-.01.257-.018.377-.023v.806a.408.408,0,1,0,.815,0v-.8a10.112,10.112,0,0,1,4.263,1.16l-.4.7a.408.408,0,1,0,.706.408l.4-.694A10.271,10.271,0,0,1,35.19,8.011l-.694.4a.408.408,0,0,0,.408.706l.7-.4a10.118,10.118,0,0,1,1.161,4.329h-.805a.408.408,0,0,0,0,.815h.805A10.118,10.118,0,0,1,35.6,18.189l-.7-.4a.408.408,0,1,0-.408.706l.694.4a10.271,10.271,0,0,1-3.168,3.168l-.4-.694a.408.408,0,1,0-.706.408l.4.7a10.112,10.112,0,0,1-4.263,1.16v-.8a.408.408,0,1,0-.815,0v.806a10.287,10.287,0,0,1-1.947-.252.408.408,0,0,0-.182.795,11.016,11.016,0,0,0,2.47.282l.059,0,.007,0,.009,0A10.936,10.936,0,0,0,32.045,23a.346.346,0,0,0,.038-.016c.008,0,.013-.013.02-.018a11.087,11.087,0,0,0,3.984-3.979.386.386,0,0,0,.024-.032c0-.009,0-.018.009-.026a10.964,10.964,0,0,0,0-10.955Zm-.028-4.612.576.576-.576.577-.577-.577Zm-9.854-.909V1.223H24.812a.2.2,0,0,1,0-.408h3.669a.2.2,0,1,1,0,.408H27.054V2.455c-.142-.006-.277-.009-.408-.009H26.58c-.067,0-.134,0-.2.006C26.332,2.453,26.287,2.452,26.239,2.455Z' transform='translate(-14.824)'/%3E%3Cpath id='Path_3' data-name='Path 3' d='M18.239,14H16.2a.408.408,0,0,0,0,.815h2.038a.408.408,0,1,0,0-.815Z' transform='translate(-10.086 -8.293)'/%3E%3Cpath id='Path_4' data-name='Path 4' d='M15.277,21H11.2a.408.408,0,1,0,0,.815h4.077a.408.408,0,1,0,0-.815Z' transform='translate(-7.124 -12.439)'/%3E%3Cpath id='Path_5' data-name='Path 5' d='M12.316,28H6.2a.408.408,0,1,0,0,.815h6.115a.408.408,0,1,0,0-.815Z' transform='translate(-4.162 -16.585)'/%3E%3Cpath id='Path_6' data-name='Path 6' d='M9.946,35H2.2a.408.408,0,0,0,0,.815H9.946a.408.408,0,1,0,0-.815Z' transform='translate(-1.793 -20.732)'/%3E%3Cpath id='Path_7' data-name='Path 7' d='M13.5,42H8.2a.408.408,0,1,0,0,.815h5.3a.408.408,0,1,0,0-.815Z' transform='translate(-5.347 -24.878)'/%3E%3Cpath id='Path_8' data-name='Path 8' d='M17.054,49H14.2a.408.408,0,1,0,0,.815h2.854a.408.408,0,1,0,0-.815Z' transform='translate(-8.901 -29.025)'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  padding-bottom: 5px;
+}
+
+.servingTimeDesc {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23.429' height='21.518' viewBox='0 0 23.429 21.518'%3E%3Cpath id='servings' d='M22.43,11h-.813a9.823,9.823,0,0,0-.9-3.552.343.343,0,1,0-.622.289A9.143,9.143,0,0,1,20.929,11H5.23a.343.343,0,1,0,0,.685h17.2a.315.315,0,0,1,.314.314v.418a.315.315,0,0,1-.314.314H1a.315.315,0,0,1-.314-.314V12A.315.315,0,0,1,1,11.682H3.633a.343.343,0,1,0,0-.685H2.5A9.235,9.235,0,0,1,11.1,2.4h0q.14-.009.277-.014l.055,0,.1,0,.185,0c.082,0,.164,0,.245,0l.072,0,.188.009.1.006A9.242,9.242,0,0,1,19.334,6.4a.343.343,0,0,0,.565-.388A9.929,9.929,0,0,0,13.12,1.8a1.669,1.669,0,0,0,.267-.9c0-.186-.083-.53-.64-.734a3.435,3.435,0,0,0-2.064,0c-.557.2-.64.548-.64.734a1.671,1.671,0,0,0,.265.9,9.924,9.924,0,0,0-8.5,9.2H1a1,1,0,0,0-1,1v.418a1,1,0,0,0,1,1H4.692a4.247,4.247,0,0,0-.526.425l-.007.006a.311.311,0,0,0-.03.032L2.5,15.853a.945.945,0,0,0-1.29.268l-.64.944a.948.948,0,0,0,.252,1.314L5.2,21.354a.94.94,0,0,0,.53.164.962.962,0,0,0,.18-.017.94.94,0,0,0,.605-.4l.64-.944a.948.948,0,0,0-.252-1.314l-.025-.017a2.216,2.216,0,0,1,1.153-.7,7.532,7.532,0,0,1,2.771.046,6.547,6.547,0,0,0,2.794-.151l1.262-.349a6.5,6.5,0,0,0,2.3-1.163l.015-.013,2.167-1.919a1.057,1.057,0,0,0,.322-1.169H22.43a1,1,0,0,0,1-1V12A1,1,0,0,0,22.43,11ZM11.715.686A1.605,1.605,0,0,1,12.7.908a.987.987,0,0,1-.437.8l-.2-.009L12,1.7c-.1,0-.19,0-.282,0l-.2,0-.1,0-.118,0-.134.006a.987.987,0,0,1-.437-.8A1.605,1.605,0,0,1,11.715.686ZM14.172,13.58a1.13,1.13,0,0,0-.091-.165h3.287l-1.421.941-2.026.586-.069,0A1.166,1.166,0,0,0,14.172,13.58Zm-3.717-.165-.495.1-.382-.1ZM6.591,19.773l-.64.944a.261.261,0,0,1-.363.07L1.209,17.812a.261.261,0,0,1-.069-.363l.64-.944a.259.259,0,0,1,.167-.11.261.261,0,0,1,.05,0,.259.259,0,0,1,.146.045l.236.161h0l4.142,2.814A.262.262,0,0,1,6.591,19.773Zm12.331-5.732-.024.019-2.169,1.921a5.816,5.816,0,0,1-2.051,1.035l-1.262.349a5.852,5.852,0,0,1-2.5.135,8.16,8.16,0,0,0-3.038-.038,2.911,2.911,0,0,0-1.568.977l-3.24-2.2L4.645,14.33a3.227,3.227,0,0,1,2.071-.915H6.73a2.584,2.584,0,0,1,.712.132l.151.042,2.269.612a.343.343,0,0,0,.159,0l2.972-.62a.511.511,0,0,1,.388.075.46.46,0,0,1,.163.2.48.48,0,0,1-.222.62l-1.014.537a.343.343,0,0,0,.168.645l1.5-.033a.345.345,0,0,0,.088-.013L16.189,15a.343.343,0,0,0,.094-.043l2.138-1.415c.179-.111.418-.2.545-.014A.408.408,0,0,1,18.922,14.042Zm0,0' transform='translate(0 0)'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+}
+
+/* Create Recipe */
+.formPage {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 1500px;
+  z-index: 5;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.formHolder {
+  width: 900px;
+}
+
+.formHolder input {
+  display: block;
+  width: 100%;
+  margin-bottom: 20px;
+  height: 30px;
+  border: none;
+  border-bottom: 2px solid black;
+}
+
+.formTop,
+.formIngred,
+.formInstr {
+  margin-top: 50px;
+  position: relative;
+}
+
+.formTop .imageBtn {
+  position: absolute;
+  right: 0;
+  top: -8px;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background-color: #fcbcb8;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+.formIngred,
+.formInstr p {
+  font-size: 15px;
+}
+
+.formIngred .ingredAddBtn,
+.formInstr .instrAddBtn {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  background-color: #fcbcb8;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+.recipeBtn {
+  width: 250px;
+  height: 40px;
+  font-size: 20px;
+  background-color: #fcbcb8;
+  color: black;
+  margin: 0 auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Login Page */
+
+.loginPage {
+  position: absolute;
+  background-color: #ffd972;
+  width: 100%;
+  height: 1000px;
+  z-index: 5;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.loginPage form {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginPage li {
+  list-style: none;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.loginPage input[type="text"] {
+  border: none;
+  border-bottom: 3px solid black;
+  padding: 5px;
+  width: 100%;
+  margin-top: 5px;
+  background: transparent;
+}
+
+.loginPage input[type="submit"] {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 150px;
+}
+
+@media all and (max-width: 800px) {
+  .nav-holder nav {
+    display: none;
+  }
+
+  .hamburger-icon {
+    display: block;
+    padding-bottom: 500px;
+  }
+
+  .box {
+    width: 400px;
+    height: 400px;
+  }
+
+  .circle1 {
+    width: 270px;
+    height: 270px;
+  }
+
+  .circle2 {
+    width: 120px;
+    height: 120px;
+    top: 20px;
+    left: 260px;
+  }
+
+  .footer {
+    font-size: 10px;
+  }
+
+  .loginPage {
+    padding-top: 80px;
+    flex-direction: column;
+  }
+
+  .loginHere {
+    padding-top: 50px;
+  }
+}

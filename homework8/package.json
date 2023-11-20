@@ -1,0 +1,23 @@
+{
+  "name": "homework8",
+  "version": "1.0.0",
+  "description": "DEV-27350",
+  "scripts": {
+    "serve": "live-server dist",
+    "build-webpack": "webpack"
+  },
+  "dependencies": {
+    "firebase": "^10.5.2"
+  },
+  "main": ".eslintsrc.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4"
+  }
+}
