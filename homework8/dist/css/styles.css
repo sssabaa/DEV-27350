@@ -8,7 +8,7 @@ body {
   height: 100%;
   font-family: sans-serif;
   position: relative;
-  background: url("/images/homeBackground.png") center center/cover no-repeat;
+  background: url("../images/homeBackground.png") center center/cover no-repeat;
 }
 
 h1,
@@ -35,6 +35,7 @@ p {
 
 .nav-holder a {
   text-decoration: none;
+  color: inherit;
 }
 
 .footer ul,
@@ -55,6 +56,41 @@ nav ul li {
   margin-left: 10px;
   padding: 5px;
   transition: 0.2s;
+}
+
+.footer-center {
+  position: fixed;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.footer-favicon {
+  position: fixed;
+  right: 0;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  align-content: space-around;
+}
+
+.footFb {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19'%3E%3Cpath id='facebook' d='M2.783,19h6.2V12.246H6.754V10.02H8.98V7.236a2.786,2.786,0,0,1,2.783-2.783h2.783V6.68H12.32a1.114,1.114,0,0,0-1.113,1.113V10.02h3.239l-.371,2.227H11.207V19h5.01A2.786,2.786,0,0,0,19,16.217V2.783A2.786,2.786,0,0,0,16.217,0H2.783A2.786,2.786,0,0,0,0,2.783V16.217A2.786,2.786,0,0,0,2.783,19ZM1.113,2.783a1.672,1.672,0,0,1,1.67-1.67H16.217a1.672,1.672,0,0,1,1.67,1.67V16.217a1.672,1.672,0,0,1-1.67,1.67h-3.9V13.359h2.7l.742-4.453H12.32V7.793h3.34V3.34h-3.9a3.9,3.9,0,0,0-3.9,3.9v1.67H5.641v4.453H7.867v4.527H2.783a1.672,1.672,0,0,1-1.67-1.67Zm0,0' fill='%23393939'/%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  width: 20px;
+  height: 20px; /* Add height for the image to be visible */
+}
+
+.footInsta {
+  background-image: url("data:image/svg+xml,%3Csvg id='instagram' xmlns='http://www.w3.org/2000/svg' width='19' height='19' viewBox='0 0 19 19'%3E%3Cg id='Group_22' data-name='Group 22'%3E%3Cg id='Group_21' data-name='Group 21'%3E%3Cpath id='Path_9' data-name='Path 9' d='M13.063,0H5.938A5.938,5.938,0,0,0,0,5.938v7.125A5.938,5.938,0,0,0,5.938,19h7.125A5.938,5.938,0,0,0,19,13.063V5.938A5.938,5.938,0,0,0,13.063,0Zm4.156,13.063a4.161,4.161,0,0,1-4.156,4.156H5.938a4.161,4.161,0,0,1-4.156-4.156V5.938A4.161,4.161,0,0,1,5.938,1.781h7.125a4.161,4.161,0,0,1,4.156,4.156Z' fill='%23393939'/%3E%3C/g%3E%3C/g%3E%3Cg id='Group_24' data-name='Group 24' transform='translate(4.75 4.75)'%3E%3Cg id='Group_23' data-name='Group 23'%3E%3Cpath id='Path_10' data-name='Path 10' d='M132.75,128a4.75,4.75,0,1,0,4.75,4.75A4.75,4.75,0,0,0,132.75,128Zm0,7.719a2.969,2.969,0,1,1,2.969-2.969A2.973,2.973,0,0,1,132.75,135.719Z' transform='translate(-128 -128)' fill='%23393939'/%3E%3C/g%3E%3C/g%3E%3Cg id='Group_26' data-name='Group 26' transform='translate(13.973 3.761)'%3E%3Cg id='Group_25' data-name='Group 25'%3E%3Ccircle id='Ellipse_7' data-name='Ellipse 7' cx='0.633' cy='0.633' r='0.633' fill='%23393939'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E%0A");
+  background-repeat: no-repeat;
+  margin: 20px;
+  width: 20px;
+  height: 20px; /* Add height for the image to be visible */
 }
 
 nav ul li:hover {
@@ -198,7 +234,7 @@ nav ul li:hover {
 
 .recipePage {
   position: absolute;
-  background: url("/images/viewRecipe.png") center center/cover no-repeat;
+  background: url("../images/viewRecipe.png") center center/cover no-repeat;
   width: 100%;
   height: 100%;
   z-index: 5;
@@ -228,14 +264,14 @@ nav ul li:hover {
   justify-content: center;
 }
 
-.recipe .imageHolder {
+.imageHolder {
   width: 300px;
   height: 263px;
   border-radius: 20px;
   overflow: hidden;
 }
 
-.recipe .imageHolder img {
+.imageHolder img {
   display: block;
   width: 100%;
   height: 100%;
@@ -259,6 +295,11 @@ nav ul li:hover {
   font-size: 12px;
 }
 
+.titleDesc a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .recipeTimeDesc {
   background-image: url("data:image/svg+xml,%3Csvg id='time' xmlns='http://www.w3.org/2000/svg' width='22.998' height='24.46' viewBox='0 0 22.998 24.46'%3E%3Cpath id='Path_1' data-name='Path 1' d='M29.359,28.518a1.451,1.451,0,0,0,1.062-.595l3.817-5.277a.408.408,0,0,0-.57-.57L28.391,25.9a1.453,1.453,0,0,0,.854,2.627C29.283,28.523,29.321,28.521,29.359,28.518Zm-.748-1.5a.636.636,0,0,1,.26-.466l3.219-2.329-2.328,3.218a.637.637,0,0,1-1.151-.424Z' transform='translate(-17.194 -13.032)'/%3E%3Cpath id='Path_2' data-name='Path 2' d='M36.121,7.976c0-.009,0-.018-.009-.026s-.013-.013-.018-.02a11.083,11.083,0,0,0-1.453-1.96l.876-.875.576.576,1.729-1.73L36.093,2.211,34.363,3.94l.577.577-.876.875A11.07,11.07,0,0,0,32.1,3.938c-.008-.005-.012-.013-.02-.018s-.018,0-.026-.009A10.93,10.93,0,0,0,27.87,2.524V2.038h.611a1.019,1.019,0,1,0,0-2.038H24.812a1.019,1.019,0,0,0,0,2.038h.611V2.51a11.213,11.213,0,0,0-1.314.218.408.408,0,1,0,.182.795,10.367,10.367,0,0,1,1.133-.194l.437-.034c.134-.01.257-.018.377-.023v.806a.408.408,0,1,0,.815,0v-.8a10.112,10.112,0,0,1,4.263,1.16l-.4.7a.408.408,0,1,0,.706.408l.4-.694A10.271,10.271,0,0,1,35.19,8.011l-.694.4a.408.408,0,0,0,.408.706l.7-.4a10.118,10.118,0,0,1,1.161,4.329h-.805a.408.408,0,0,0,0,.815h.805A10.118,10.118,0,0,1,35.6,18.189l-.7-.4a.408.408,0,1,0-.408.706l.694.4a10.271,10.271,0,0,1-3.168,3.168l-.4-.694a.408.408,0,1,0-.706.408l.4.7a10.112,10.112,0,0,1-4.263,1.16v-.8a.408.408,0,1,0-.815,0v.806a10.287,10.287,0,0,1-1.947-.252.408.408,0,0,0-.182.795,11.016,11.016,0,0,0,2.47.282l.059,0,.007,0,.009,0A10.936,10.936,0,0,0,32.045,23a.346.346,0,0,0,.038-.016c.008,0,.013-.013.02-.018a11.087,11.087,0,0,0,3.984-3.979.386.386,0,0,0,.024-.032c0-.009,0-.018.009-.026a10.964,10.964,0,0,0,0-10.955Zm-.028-4.612.576.576-.576.577-.577-.577Zm-9.854-.909V1.223H24.812a.2.2,0,0,1,0-.408h3.669a.2.2,0,1,1,0,.408H27.054V2.455c-.142-.006-.277-.009-.408-.009H26.58c-.067,0-.134,0-.2.006C26.332,2.453,26.287,2.452,26.239,2.455Z' transform='translate(-14.824)'/%3E%3Cpath id='Path_3' data-name='Path 3' d='M18.239,14H16.2a.408.408,0,0,0,0,.815h2.038a.408.408,0,1,0,0-.815Z' transform='translate(-10.086 -8.293)'/%3E%3Cpath id='Path_4' data-name='Path 4' d='M15.277,21H11.2a.408.408,0,1,0,0,.815h4.077a.408.408,0,1,0,0-.815Z' transform='translate(-7.124 -12.439)'/%3E%3Cpath id='Path_5' data-name='Path 5' d='M12.316,28H6.2a.408.408,0,1,0,0,.815h6.115a.408.408,0,1,0,0-.815Z' transform='translate(-4.162 -16.585)'/%3E%3Cpath id='Path_6' data-name='Path 6' d='M9.946,35H2.2a.408.408,0,0,0,0,.815H9.946a.408.408,0,1,0,0-.815Z' transform='translate(-1.793 -20.732)'/%3E%3Cpath id='Path_7' data-name='Path 7' d='M13.5,42H8.2a.408.408,0,1,0,0,.815h5.3a.408.408,0,1,0,0-.815Z' transform='translate(-5.347 -24.878)'/%3E%3Cpath id='Path_8' data-name='Path 8' d='M17.054,49H14.2a.408.408,0,1,0,0,.815h2.854a.408.408,0,1,0,0-.815Z' transform='translate(-8.901 -29.025)'/%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
@@ -268,6 +309,67 @@ nav ul li:hover {
 .servingTimeDesc {
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='23.429' height='21.518' viewBox='0 0 23.429 21.518'%3E%3Cpath id='servings' d='M22.43,11h-.813a9.823,9.823,0,0,0-.9-3.552.343.343,0,1,0-.622.289A9.143,9.143,0,0,1,20.929,11H5.23a.343.343,0,1,0,0,.685h17.2a.315.315,0,0,1,.314.314v.418a.315.315,0,0,1-.314.314H1a.315.315,0,0,1-.314-.314V12A.315.315,0,0,1,1,11.682H3.633a.343.343,0,1,0,0-.685H2.5A9.235,9.235,0,0,1,11.1,2.4h0q.14-.009.277-.014l.055,0,.1,0,.185,0c.082,0,.164,0,.245,0l.072,0,.188.009.1.006A9.242,9.242,0,0,1,19.334,6.4a.343.343,0,0,0,.565-.388A9.929,9.929,0,0,0,13.12,1.8a1.669,1.669,0,0,0,.267-.9c0-.186-.083-.53-.64-.734a3.435,3.435,0,0,0-2.064,0c-.557.2-.64.548-.64.734a1.671,1.671,0,0,0,.265.9,9.924,9.924,0,0,0-8.5,9.2H1a1,1,0,0,0-1,1v.418a1,1,0,0,0,1,1H4.692a4.247,4.247,0,0,0-.526.425l-.007.006a.311.311,0,0,0-.03.032L2.5,15.853a.945.945,0,0,0-1.29.268l-.64.944a.948.948,0,0,0,.252,1.314L5.2,21.354a.94.94,0,0,0,.53.164.962.962,0,0,0,.18-.017.94.94,0,0,0,.605-.4l.64-.944a.948.948,0,0,0-.252-1.314l-.025-.017a2.216,2.216,0,0,1,1.153-.7,7.532,7.532,0,0,1,2.771.046,6.547,6.547,0,0,0,2.794-.151l1.262-.349a6.5,6.5,0,0,0,2.3-1.163l.015-.013,2.167-1.919a1.057,1.057,0,0,0,.322-1.169H22.43a1,1,0,0,0,1-1V12A1,1,0,0,0,22.43,11ZM11.715.686A1.605,1.605,0,0,1,12.7.908a.987.987,0,0,1-.437.8l-.2-.009L12,1.7c-.1,0-.19,0-.282,0l-.2,0-.1,0-.118,0-.134.006a.987.987,0,0,1-.437-.8A1.605,1.605,0,0,1,11.715.686ZM14.172,13.58a1.13,1.13,0,0,0-.091-.165h3.287l-1.421.941-2.026.586-.069,0A1.166,1.166,0,0,0,14.172,13.58Zm-3.717-.165-.495.1-.382-.1ZM6.591,19.773l-.64.944a.261.261,0,0,1-.363.07L1.209,17.812a.261.261,0,0,1-.069-.363l.64-.944a.259.259,0,0,1,.167-.11.261.261,0,0,1,.05,0,.259.259,0,0,1,.146.045l.236.161h0l4.142,2.814A.262.262,0,0,1,6.591,19.773Zm12.331-5.732-.024.019-2.169,1.921a5.816,5.816,0,0,1-2.051,1.035l-1.262.349a5.852,5.852,0,0,1-2.5.135,8.16,8.16,0,0,0-3.038-.038,2.911,2.911,0,0,0-1.568.977l-3.24-2.2L4.645,14.33a3.227,3.227,0,0,1,2.071-.915H6.73a2.584,2.584,0,0,1,.712.132l.151.042,2.269.612a.343.343,0,0,0,.159,0l2.972-.62a.511.511,0,0,1,.388.075.46.46,0,0,1,.163.2.48.48,0,0,1-.222.62l-1.014.537a.343.343,0,0,0,.168.645l1.5-.033a.345.345,0,0,0,.088-.013L16.189,15a.343.343,0,0,0,.094-.043l2.138-1.415c.179-.111.418-.2.545-.014A.408.408,0,0,1,18.922,14.042Zm0,0' transform='translate(0 0)'/%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
+}
+
+.recipe-description {
+  position: absolute;
+  background-color: white;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.recipe-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 700px;
+  position: relative;
+}
+
+.recipe-heading h4 {
+  transform: rotate(270deg);
+  white-space: nowrap;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform-origin: left bottom;
+}
+
+.recipe-imageHolder img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recipe-imageHolder {
+  width: 250px;
+  height: 250px;
+  overflow: hidden;
+}
+
+.recipe-titleDesc {
+  padding-left: 20px;
+}
+
+.recipe-bottom {
+  text-align: left;
+  padding: 20px;
+  margin-left: 20%;
+}
+
+.recipe-bottom h4 {
+  padding-top: 20px;
+}
+
+.recipe-bottom ul {
+  list-style-type: none;
 }
 
 /* Create Recipe */
@@ -340,6 +442,39 @@ nav ul li:hover {
 }
 
 .recipeBtn {
+  width: 250px;
+  height: 40px;
+  font-size: 20px;
+  background-color: #fcbcb8;
+  color: black;
+  margin: 0 auto;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.editBtn {
+  position: absolute;
+  left: 80px;
+  bottom: 90px;
+  z-index: 7;
+  cursor: pointer;
+  width: 100px;
+  height: 30px;
+  background-color: #ffd972;
+  color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  text-decoration: none;
+  color: inherit;
+}
+
+.editRecipeBtn {
   width: 250px;
   height: 40px;
   font-size: 20px;
@@ -433,5 +568,81 @@ nav ul li:hover {
 
   .loginHere {
     padding-top: 50px;
+  }
+
+  .recipe-description {
+    height: 1000px;
+  }
+
+  .recipe-heading {
+    padding-top: 300px;
+    flex-direction: column; /* Change flex direction to column */
+    align-items: center; /* Align items to the start */
+    width: 400px;
+  }
+
+  .recipe-heading h4 {
+    display: block;
+    left: 30px;
+  }
+
+  .recipe-imageHolder img {
+    margin-bottom: 10px;
+  }
+
+  .recipe-bottom {
+    padding-bottom: 100px;
+  }
+  .recipe-bottom {
+    margin-left: 10%;
+  }
+
+  .formHolder {
+    width: 600px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  * {
+    font-size: small;
+  }
+  .footer {
+    font-size: 10px;
+    margin-bottom: 50px;
+  }
+
+  .circle2 {
+    font-size: 6px;
+    padding: 10px;
+  }
+
+  .recipe {
+    width: 350px;
+    align-items: 0;
+    flex-direction: column;
+  }
+  .titleDesc {
+    width: 300px;
+    height: 250px;
+  }
+
+  .imageHolder {
+    height: 200px;
+  }
+
+  .recipe-heading {
+    width: 300px;
+    padding-left: 15px;
+  }
+  .recipe-heading h4 {
+    left: 0;
+  }
+
+  .recipe-bottom {
+    margin-left: 10px;
+  }
+
+  .formHolder {
+    width: 300px;
   }
 }

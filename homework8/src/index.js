@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword, signOut, updateProfile } from 'firebase/auth';
-// import {getAuth,signOut,createUserWithEmailAndPassword, signInWithEmailAndPassword} from 'firebase/auth';
+
 
 const firebaseConfig = {
   apiKey: "AIzaSyDjErHaJcgMRk91F0GUSQ16jMRLI1a7aSc",
@@ -67,7 +67,7 @@ function changeRoute() {
                             <img src="${recipe.imagePath}" alt="" />
                           </div>
                           <div class="titleDesc">
-                            <h3><u>${recipe.itemName}</u></h3>
+                            <h3><u><a class="dynamic-link" href="#userRecipeDesc" data-id="${recipe.itemName}">${recipe.itemName}</a></u></h3>
                             <p>
                               ${recipe.itemDesc}
                             </p>
@@ -81,6 +81,10 @@ function changeRoute() {
                 }
             }
 
+            else if (pageID == 'userRecipeDesc') {
+                
+            }
+
 
         });
     } else {
@@ -88,7 +92,11 @@ function changeRoute() {
             $('#app').html(data);
         });
     }
+
+
 }
+
+
 
 function initURLListener() {
     $(window).on('hashchange', changeRoute);
@@ -213,32 +221,180 @@ function initListeners() {
         $(".formIngred input").each(function(index, data) {
             var value = $(this).val();
             if (value != "") {
-                let keyName = 'ingredient' + index;
-                let ingredObj = {};
-                ingredObj[keyName] = value;
-                newItemObj.ingredients.push(ingredObj);
+                newItemObj.ingredients.push(value);
             }
-            
         });
+        
 
         newItemObj.instrcutions = [];
         $(".formInstr input").each(function(index, data) {
             var value = $(this).val();
             if (value != "") {
-                let keyName = 'instrcution' + index;
-                let instrObj = {};
-                instrObj[keyName] = value;
-                newItemObj.instrcutions.push(instrObj);
+                newItemObj.instrcutions.push(value);
             }
         });
+        
         recipes.push(newItemObj);
         alert("Success!");
         console.log(recipes);
     });
 
-    }
+    $('#app').on('click', '.dynamic-link', function (e) {
+        e.preventDefault();
+        var dataId = $(this).attr('data-id');
+        console.log('Clicked link with data-id:', dataId);
     
+        
+        $.get(`pages/userRecipeDesc.html`, function (data) {
+          $('#app').html(data);
+    
+          
+          var clickedRecipe = recipes.find(recipe => recipe.itemName === dataId);
+            console.log('THIS', clickedRecipe);
+          if (clickedRecipe) {
+            
+            $('#app .recipe-description').html(`<div class="recipe-heading">
+            <h4>${clickedRecipe.itemName}</h4>
+            <div class="recipe-imageHolder">
+              <img src="${clickedRecipe.imagePath}" alt="" />
+            </div>
+            <div class="recipe-titleDesc">
+              <p>
+                Description: <br /><br />
+                ${clickedRecipe.itemDesc}
+              </p>
+        
+              <p>
+                Total Time: <br /><br />
+                ${clickedRecipe.itemTime} 
+              </p>
+              <p>
+                Servings: <br /><br />
+                ${clickedRecipe.itemSize} Serving
+              </p>
+            </div>
+          </div>
+          <div class="recipe-bottom">
+            <h4>Ingredients:</h4>
+            <ul>
+            ${(() => {
+                let htmlString = "";
+                $.each(clickedRecipe.ingredients, (idx, ingredient) => {
+                    htmlString += `<li>${ingredient}</li>`;
+                });
+                return htmlString;
+            })()}
+            
+              
+            </ul>
+        
+            <h4>Instructions:</h4>
+            <ol>
+            ${(() => {
+                let htmlString = "";
+                $.each(clickedRecipe.instrcutions, (idx, instruction) => {
+                    htmlString += `<li>${instruction}</li>`;
+                });
+                return htmlString;
+            })()}
+            </ol></div>
+            <a class="editBtn" data-id="${clickedRecipe.itemName}">Edit Recipe</a>`);
+          } 
 
+        });
+      });
+
+    $('#app').on('click', '.editBtn', function (e) {
+    e.preventDefault();
+    var dataId = $(this).attr('data-id');
+    console.log('Clicked editbtn with data-id:', dataId);
+
+    
+    $.get(`pages/editRecipe.html`, function (data) {
+        $('#app').html(data);
+
+        
+        var editRecipe = recipes.find(recipe => recipe.itemName === dataId);
+        console.log('THIS edit', editRecipe);
+        if (editRecipe) {
+        
+        $('#app .formPage .formHolder .formTop').html(`<div class="imageBtn">Attach file</div>
+        <input
+          type="text"
+          id="imagePath"
+          placeholder="Edit Recipe Image"
+          required
+        />
+        <input type="text" id="itemName" placeholder="${editRecipe.itemName}" required />
+        <input type="text" id="itemDesc" placeholder="${editRecipe.itemDesc}" required />
+        <input type="text" id="itemTime" placeholder="${editRecipe.itemTime}" required />
+        <input type="text" id="itemSize" placeholder="${editRecipe.itemSize}" required />`);
+
+        $('#app .formPage .formHolder #button').html(`<div class="editRecipeBtn" data-id="${editRecipe.itemName}" >Edit Recipe</div>`);
+        } 
+
+
+        
+    });
+    });
+
+    $('#app').on('click', '.editRecipeBtn', function (e) {
+        e.preventDefault();
+        var dataId = $(this).attr('data-id');
+        console.log('Clicked edit THIS with data-id:', dataId);
+    
+        var editRecipe = recipes.find(recipe => recipe.itemName === dataId);
+        console.log('THIS edit edit', editRecipe);
+    
+        if (editRecipe) {
+            // Create an object to store the updated values
+            let updatedRecipe = {};
+    
+            // Update properties with values from form inputs only if they are not empty
+            updatedRecipe.imagePath = $("#imagePath").val();
+            updatedRecipe.itemName = $("#itemName").val();
+            updatedRecipe.itemDesc = $("#itemDesc").val();
+            updatedRecipe.itemTime = $("#itemTime").val();
+            updatedRecipe.itemSize = $("#itemSize").val();
+    
+            updatedRecipe.ingredients = [];
+            $(".formIngred input").each(function (index, data) {
+                var value = $(this).val();
+                if (value !== "") {
+                    updatedRecipe.ingredients.push(value);
+                }
+            });
+    
+            updatedRecipe.instrcutions = [];
+            $(".formInstr input").each(function (index, data) {
+                var value = $(this).val();
+                if (value !== "") {
+                    updatedRecipe.instrcutions.push(value);
+                }
+            });
+    
+            // Find the index of the existing recipe in the recipes array
+            var index = recipes.findIndex(recipe => recipe.itemName === dataId);
+    
+            if (index !== -1) {
+                // Loop through properties of updatedRecipe and update recipes only for non-empty values
+                for (let prop in updatedRecipe) {
+                    if (updatedRecipe.hasOwnProperty(prop) && updatedRecipe[prop] !== "") {
+                        recipes[index][prop] = updatedRecipe[prop];
+                    }
+                }
+    
+                alert('Updated');
+            }
+        }
+    });
+    
+    
+    
+    };
+
+  
+    
 
     $(document).ready(function () {
         initURLListener();
