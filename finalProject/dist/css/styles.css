@@ -36,6 +36,7 @@ p {
 }
 
 .headPart {
+  display: inline-block;
   height: 200px;
   padding: 0 20px;
   position: relative;
@@ -43,7 +44,6 @@ p {
   background-color: #ece9e4;
   top: 0px;
   width: 100%;
-
   transition: background-color 0.3s linear 0s, box-shadow 0.3s linear 0s;
 }
 
@@ -119,6 +119,11 @@ nav ul {
   display: flex;
   align-items: center;
   justify-content: space-around;
+  -webkit-box-flex-wrap: wrap;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  padding-bottom: 0.625rem;
 }
 
 .footer ul a,
@@ -146,18 +151,20 @@ nav ul li:hover {
 }
 
 .footer {
-  height: 80px;
+  height: 60px;
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  position: fixed;
+  justify-content: center;
+  position: relative;
   bottom: 0;
   left: 0;
   right: 0;
   z-index: 6;
   font-size: 12px;
+  font-style: italic;
   color: black;
-  background-color: #ece9e4;
+  background-color: whitesmoke;
+  border-top: 1px solid #c3c3c3;
 }
 
 .footer a {
@@ -168,7 +175,7 @@ nav ul li:hover {
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .footer ul li {
@@ -215,24 +222,6 @@ nav ul li:hover {
 
 .mobile-menu {
   display: none;
-  position: absolute;
-  animation: 0.5s ease 0s 1 normal none running rightToLeft;
-  top: 0px;
-  right: 0;
-  left: -40px;
-  height: calc(100vh - 100px);
-  width: 100% + 40px;
-  background-color: white;
-}
-
-.mobile-menu li {
-  background-color: #ece9e4;
-  width: 100%;
-  padding: 18px;
-  font-weight: bold;
-  text-align: left;
-  color: rgb(112, 80, 67);
-  border-bottom: #ece9e4 1px solid;
 }
 
 /* Shop */
@@ -325,11 +314,10 @@ nav ul li:hover {
 .login {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
   border-radius: 35px;
-  background-color: #ffd972;
-  padding: 10px 30px 10px 50px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  background-color: rgb(47, 255, 75);
+  padding: 10px 20px 10px 20px;
 }
 
 .login_svg {
@@ -370,7 +358,7 @@ nav ul li:hover {
 .loginPage {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: center;
 }
 
 .loginPage li {
@@ -396,7 +384,8 @@ nav ul li:hover {
 }
 
 /* Cart Page */
-.cartIsHere {
+
+#cartIsHere {
   padding-bottom: 200px;
 }
 
@@ -473,7 +462,45 @@ nav ul li:hover {
   font-size: 12px;
 }
 
+.deleteBtn {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg%3E%3Cpath fill='none' d='M0 0h24v24H0z'/%3E%3Cpath d='M17 6h5v2h-2v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V8H2V6h5V3a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v3zm1 2H6v12h12V8zm-4.586 6l1.768 1.768-1.414 1.414L12 15.414l-1.768 1.768-1.414-1.414L10.586 14l-1.768-1.768 1.414-1.414L12 12.586l1.768-1.768 1.414 1.414L13.414 14zM9 4v2h6V4H9z'/%3E%3C/g%3E%3C/svg%3E");
+  color: rgba(0, 0, 0, 0);
+}
+
 @media all and (max-width: 991px) {
+  .headPart {
+    width: 100%;
+    background-color: #ece9e4;
+    padding: 10px;
+    height: 160px;
+  }
+
+  .hamburger-icon {
+    position: absolute;
+    left: 30px;
+    top: 40px;
+  }
+
+  .logo {
+    position: absolute;
+    top: 30px;
+    right: calc(100vw - 60vw);
+    width: 150px;
+  }
+
+  .headingRight {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+  }
+
+  .headings h5 {
+    display: none;
+  }
+  .support {
+    display: none;
+  }
+
   .nav-holder {
     display: block;
   }
@@ -481,120 +508,47 @@ nav ul li:hover {
     display: none;
   }
 
-  .nav-holder .logo {
-    width: 116px;
-    vertical-align: top;
-  }
-
   .hamburger-icon {
     display: block;
   }
 
+  .mobile-menu {
+    display: none;
+    position: absolute;
+    animation: 0.5s ease 0s 1 normal none running rightToLeft;
+    top: 10px;
+    left: -70px;
+    height: calc(100vh - 100px);
+    width: calc(100vw + 23px);
+    background-color: white;
+  }
+
+  .mobile-menu li {
+    background-color: #ece9e4;
+    width: 100%;
+    padding: 18px;
+    font-weight: bold;
+    text-align: left;
+    color: rgb(112, 80, 67);
+    border-bottom: #ece9e4 1px solid;
+  }
+
   .searchContainer {
-    max-width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    position: absolute;
+    top: 100px;
+    min-width: 90%;
+    left: calc(100vw - 95vw);
   }
 
   .searchBar {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    border: 1px solid black;
-    border-radius: 50px;
-    font-size: 16px;
-    outline: none;
+    width: 90%;
   }
 
   .footer {
     font-size: 10px;
-  }
-
-  .loginPage {
-    padding-top: 80px;
-    flex-direction: column;
   }
 
   .loginHere {
     padding-top: 50px;
-  }
-
-  .recipe-description {
-    height: 1000px;
-  }
-
-  .recipe-heading {
-    padding-top: 300px;
-    flex-direction: column; /* Change flex direction to column */
-    align-items: center; /* Align items to the start */
-    width: 400px;
-  }
-
-  .recipe-heading h4 {
-    display: block;
-    left: 30px;
-  }
-
-  .recipe-imageHolder img {
-    margin-bottom: 10px;
-  }
-
-  .recipe-bottom {
-    padding-bottom: 100px;
-  }
-  .recipe-bottom {
-    margin-left: 10%;
-  }
-
-  .formHolder {
-    width: 600px;
-  }
-}
-
-@media all and (max-width: 400px) {
-  * {
-    font-size: small;
-  }
-  .footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-evenly;
-    font-size: 10px;
-  }
-
-  .footer a {
-    font-size: 10px;
-  }
-
-  .recipe {
-    width: 350px;
-    align-items: 0;
-    flex-direction: column;
-  }
-  .titleDesc {
-    width: 250px;
-    height: 170px;
-  }
-
-  .imageHolder {
-    height: 200px;
-  }
-
-  .recipe-heading {
-    width: 300px;
-    padding-left: 15px;
-  }
-  .recipe-heading h4 {
-    left: 0;
-  }
-
-  .recipe-bottom {
-    margin-left: 10px;
-  }
-
-  .formHolder {
-    width: 300px;
   }
 }

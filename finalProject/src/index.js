@@ -22,15 +22,14 @@ onAuthStateChanged(auth, (user) => {
     console.log("logged in");
 
     $("#signIn").val("SignOut").attr("id", "signOut");
-    $("nav ul .login").html(`<a href="#" id="signOut">Logout</a>`);
-    $(".hamburger-icon ul .login").html(`<a href="#" id="signOut">Logout</a>`);
 
-    $('nav').on('click', '#signOut', function (e) {
+    $('.login').on('click', '#signOut', function (e) {
         e.preventDefault();
         signOut(auth)
             .then(() => {
                 // Signed out
                 console.log("Signed Out");
+                alert('Successfully signed out.');
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -42,6 +41,7 @@ onAuthStateChanged(auth, (user) => {
     }
      
     else {
+        $("#signOut").val("SignIn").attr("id", "signIn");
     console.log("No user");
     
     
@@ -83,7 +83,7 @@ onAuthStateChanged(auth, (user) => {
                 // Signed in 
                 currentUser = userCredential.user;
                 let displayName = currentUser.displayName;
-                alert('User signed in:', displayName);
+                alert('Successfully signed in');
             })
             .catch((error) => {
                 const errorCode = error.code;
@@ -97,11 +97,14 @@ onAuthStateChanged(auth, (user) => {
     
 });
 
-var clicker = 0;
-$(".hamburger-icon").on("click", () => {
+let clicker = 0;
+
+$(".hamburger-icon").on("click", (e) => {
+    e.preventDefault();
+
     $(".hamburger-icon").toggleClass("open");
-    
-    if (clicker == 0){
+
+    if (clicker == 0) {
         $(".footer").hide();
         $("#app").hide();
         clicker = 1;
@@ -110,8 +113,8 @@ $(".hamburger-icon").on("click", () => {
         $("#app").show();
         clicker = 0;
     }
-    
 });
+
 
 
 
@@ -189,72 +192,81 @@ function displayProducts(products) {
         container.appendChild(productDiv);
     });
 
+    // Function to add product to the cart
     window.addToCart = function (productID, productImage, productName, productPrice) {
         const existingItem = cart.find(item => item.name === productName);
 
         if (existingItem) {
+            // Item already in cart, increase quantity
             existingItem.quantity += 1;
         } else {
+            // Item not in cart, add it with quantity 1
             const item = { id: productID, image: productImage, name: productName, price: productPrice, quantity: 1 };
             cart.push(item);
         }
 
+        console.log('Cart:', cart);
         displayCart();
     };
 }
 
 // Function to display the cart
 function displayCart() {
-    // Wait for the document to be fully loaded
-    document.addEventListener('DOMContentLoaded', function () {
-        // Get the cartContainer element
-        const cartContainer = document.getElementById('cartPage');
+    const cartContainer = document.getElementById('cartPage');
+    const need = document.getElementById('cartIsHere');
 
-        // Check if the element exists
-        if (cartContainer) {
-            // Clear the container first
-            cartContainer.innerHTML = '';
+    if (cart.length === 0) {
+        need.innerHTML = `<div
+        style="
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+          justify-content: center;
+          margin-top: 270px;
+        "
+      >
+        <h5>0 ITEM</h5>
+        <h1>You don't have any items in your shopping cart</h1>
+      </div>`;
+    } else {
+        cartContainer.innerHTML = '';
 
-            if (cart.length === 0) {
-                cartContainer.innerHTML = '<p>Your cart is empty.</p>';
-            } else {
-                // Iterate through the cart items and display them
-                cart.forEach(item => {
-                    const cartItemDiv = document.createElement('div');
-                    cartItemDiv.className = 'addedObjects';
-                    cartItemDiv.innerHTML = `
-                        <div class="cartImageHolder">
-                            <img src="${item.image}" alt="" />
-                        </div>
-                        <h5>${item.name}</h5>
-                        <p>Quantity: 1</p>
-                        <p>Total Price: ${item.price.toFixed(2)}</p>
-                        <p>delete</p>
-                    `;
-                    cartContainer.appendChild(cartItemDiv);
-                });
-            }
-        } else {
-            console.error("Element with id='cartPage' not found.");
-        }
-    });
+        cart.forEach(item => {
+            const cartItemDiv = document.createElement('div');
+            cartItemDiv.className = 'addedObjects';
+            cartItemDiv.innerHTML = `
+                    <div class="cartImageHolder">
+                        <img src="${item.image}" alt="" />
+                    </div>
+                    <h5>${item.name}</h5>
+                    <p>Quantity: ${item.quantity}</p>
+                    <p>Total Price: ${(item.price * item.quantity).toFixed(2)}</p>
+                    <p class="deleteBtn" onclick="deleteFromCart('${item.name}')">Del</p>
+            `;
+            cartContainer.appendChild(cartItemDiv);
+        });
+    }
 }
 
-
+// Function to delete item from the cart
 window.deleteFromCart = function (productName) {
     const existingItem = cart.find(item => item.name === productName);
 
     if (existingItem) {
         if (existingItem.quantity > 1) {
+            // Decrease quantity if more than 1
             existingItem.quantity -= 1;
         } else {
+            // Remove the item if quantity is 1
             const index = cart.indexOf(existingItem);
             cart.splice(index, 1);
         }
 
+        console.log('Cart:', cart);
         displayCart();
     }
 };
+
  
  
 
@@ -262,6 +274,7 @@ window.deleteFromCart = function (productName) {
 document.addEventListener('DOMContentLoaded', function () {
     initURLListener();
     initListeners();
+    displayCart();
 });
 
 document.addEventListener('DOMContentLoaded', function () {
