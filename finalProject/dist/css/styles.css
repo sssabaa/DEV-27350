@@ -1,0 +1,600 @@
+*,
+:after,
+:before {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  font-family: MarkOT-Regular, Verdana, Arial, Helvetica, "Reader Regular",
+    sans-serif;
+  line-height: 1;
+  background-color: whitesmoke;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin-bottom: 16px;
+}
+
+.logo {
+  width: 175px;
+  height: 30px;
+  margin: 0px;
+  filter: brightness(0) invert(0);
+}
+
+.logo img {
+  height: 50px;
+}
+
+.headPart {
+  height: 200px;
+  padding: 0 20px;
+  position: relative;
+  z-index: 6;
+  background-color: #ece9e4;
+  top: 0px;
+  width: 100%;
+
+  transition: background-color 0.3s linear 0s, box-shadow 0.3s linear 0s;
+}
+
+.headings {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.searchContainer {
+  position: relative;
+  width: 100%;
+  height: 40px;
+  max-width: 600px;
+}
+
+.searchBar {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  border: 1px solid silver;
+  border-radius: 50px;
+  font-size: 16px;
+  outline: none;
+}
+
+.headingRight {
+  position: relative;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.support a,
+.account a,
+.cartIcon a {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  padding: 10px;
+  text-decoration: none;
+  color: black;
+  font-size: 12px;
+}
+
+.nav-holder {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  font-size: 18px;
+  padding: 20px;
+}
+
+.nav-holder a {
+  text-decoration: none;
+  color: inherit;
+}
+
+nav {
+  position: absolute;
+  left: 0;
+  top: 100px;
+  width: calc(100vw - 13vw);
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.footer ul a,
+nav ul li a {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+nav ul li a:hover {
+  color: rgba(71, 48, 54, 0.8) !important;
+}
+
+nav ul li {
+  margin-left: 10px;
+  padding: 10px;
+  transition: 0.2s ease-in-out;
+  border-radius: 50px;
+  background-color: transparent;
+  color: black;
+}
+
+nav ul li:hover {
+  background-color: white !important;
+  color: rgba(71, 48, 54, 0.8) !important;
+}
+
+.footer {
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 6;
+  font-size: 12px;
+  color: black;
+  background-color: #ece9e4;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.footer ul li {
+  padding-left: 10px;
+}
+
+.hamburger-icon {
+  margin: auto 0;
+  display: none;
+  cursor: pointer;
+}
+
+.hamburger-icon div {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+  margin-bottom: 5px;
+  margin-left: 0;
+  transition: 0.3s;
+}
+
+.open .bar1 {
+  transform: rotate(-45deg) translate(-5px, 5px);
+  transition: 0.3s;
+}
+
+.open .bar2 {
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.open .bar3 {
+  transform: rotate(+45deg) translate(-6px, -6px);
+  transition: 0.3s;
+}
+
+.open .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  margin-top: 100px;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  animation: 0.5s ease 0s 1 normal none running rightToLeft;
+  top: 0px;
+  right: 0;
+  left: -40px;
+  height: calc(100vh - 100px);
+  width: 100% + 40px;
+  background-color: white;
+}
+
+.mobile-menu li {
+  background-color: #ece9e4;
+  width: 100%;
+  padding: 18px;
+  font-weight: bold;
+  text-align: left;
+  color: rgb(112, 80, 67);
+  border-bottom: #ece9e4 1px solid;
+}
+
+/* Shop */
+
+.shopPage {
+  background-color: whitesmoke;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.viewShop {
+  width: 1300px;
+  padding-top: 100px;
+  padding-left: 30px;
+}
+
+#objectsHolder {
+  width: 100%;
+  padding-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-evenly;
+  padding-bottom: 200px;
+}
+
+.coffee_makers {
+  width: 250px;
+  height: 400px;
+  margin-bottom: 30px;
+  margin-left: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.imageHolder {
+  width: 250px;
+  height: 250px;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+}
+
+.imageHolder img {
+  display: block;
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.titleDesc {
+  background-color: white;
+  width: 250px;
+  height: 200px !important;
+  text-align: center;
+  padding: 20px 20px 0 20px;
+  font-family: Lato Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+.titleDesc a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.price {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='%23FF0000' height='20px' width='20-px' version='1.1' id='Capa_1' viewBox='0 0 490 490' xml:space='preserve'%3E%3Cg id='Business_1_Bold_34_'%3E%3Cpath d='M265.526,490v-51.236c35.601-5.099,63.409-18.988,83.422-41.635c19.983-22.647,29.982-50.501,29.982-83.53 c0-29.584-7.947-53.839-23.826-72.734c-15.894-18.896-45.738-34.3-89.578-46.167V87.649c17.716,7.672,28.665,22.28,32.861,43.809 l69.304-9.05c-4.762-27.379-15.711-49.245-32.861-65.584c-17.181-16.354-40.287-26.261-69.32-29.721V0h-39.69v27.103 c-31.406,3.108-56.58,14.838-75.475,35.219c-18.88,20.335-28.344,45.478-28.344,75.429c0,29.584,8.376,54.727,25.082,75.475 c16.69,20.718,42.936,36.199,78.752,46.412v114.767c-9.877-4.762-18.819-12.434-26.843-23.015 c-8.039-10.581-13.521-23.183-16.43-37.791l-71.494,7.672c5.482,35.969,18.084,63.792,37.791,83.53 c19.738,19.707,45.371,31.498,76.976,35.326v49.858h39.69V490z M265.526,271.414c16.43,4.762,28.267,11.561,35.464,20.412 c7.228,8.85,10.841,19.401,10.841,31.636c0,13.689-4.318,25.618-12.878,35.755c-8.59,10.137-19.738,16.492-33.427,19.034V271.414z M199.238,161.44c-5.819-8.284-8.759-17.272-8.759-26.965c0-10.581,3.185-20.274,9.601-29.032 c6.385-8.789,14.976-14.976,25.756-18.651v94.784C213.939,176.461,205.088,169.754,199.238,161.44z'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  color: red;
+}
+
+.shipping {
+  background-image: url("https://images.keurig.com/is/content/keurig/Keurig-ssr-storefront/storefrontImages/icons/ShipsBy.svg");
+  background-repeat: no-repeat;
+}
+
+/* Login Page */
+
+.login {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border-radius: 35px;
+  background-color: #ffd972;
+  padding: 10px 30px 10px 50px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.login_svg {
+  position: relative;
+  width: 32px;
+  height: 32px;
+}
+
+.modal-header {
+  padding: 0;
+}
+.modal-header .close {
+  padding: 10px 15px;
+}
+.modal-header ul {
+  border: none;
+}
+.modal-header ul li {
+  margin: 0;
+}
+.modal-header ul li a {
+  border: none;
+  border-radius: 0;
+}
+.modal-header ul li.active a {
+  color: #e12f27;
+}
+.modal-header ul li a:hover {
+  border: none;
+}
+.modal-header ul li a span {
+  margin-left: 10px;
+}
+.modal-body .form-group {
+  margin-bottom: 10px;
+}
+
+.loginPage {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.loginPage li {
+  list-style: none;
+  margin-bottom: 15px;
+  padding: 10px;
+}
+
+.loginPage input[type="text"] {
+  border: none;
+  border-bottom: 3px solid black;
+  padding: 5px;
+  width: 100%;
+  margin-top: 5px;
+  background: transparent;
+}
+
+.loginPage input[type="submit"] {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  width: 150px;
+}
+
+/* Cart Page */
+.cartIsHere {
+  padding-bottom: 200px;
+}
+
+#cartPage {
+  width: 800px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #ece9e4;
+  border-radius: 15px;
+  margin: 50px auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.addedObjects {
+  background-color: white;
+  width: 700px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: black 1px solid;
+  margin: 20px;
+}
+
+.addedObjects h5 {
+  width: 170px;
+}
+
+.cartImageHolder {
+  width: 150px;
+  height: 150px;
+  background-color: white;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cartImageHolder img {
+  display: block;
+  width: 80%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.titleDesc {
+  background-color: white;
+  width: 250px;
+  height: 170px;
+  text-align: center;
+  padding: 20px 20px 0 20px;
+  font-family: Lato Black;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 15px;
+}
+
+.deleteBtn {
+  cursor: pointer;
+}
+
+.cart-quantity {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  margin-left: 5px;
+  font-size: 12px;
+}
+
+@media all and (max-width: 991px) {
+  .nav-holder {
+    display: block;
+  }
+  .nav-holder nav {
+    display: none;
+  }
+
+  .nav-holder .logo {
+    width: 116px;
+    vertical-align: top;
+  }
+
+  .hamburger-icon {
+    display: block;
+  }
+
+  .searchContainer {
+    max-width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .searchBar {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 50px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  .footer {
+    font-size: 10px;
+  }
+
+  .loginPage {
+    padding-top: 80px;
+    flex-direction: column;
+  }
+
+  .loginHere {
+    padding-top: 50px;
+  }
+
+  .recipe-description {
+    height: 1000px;
+  }
+
+  .recipe-heading {
+    padding-top: 300px;
+    flex-direction: column; /* Change flex direction to column */
+    align-items: center; /* Align items to the start */
+    width: 400px;
+  }
+
+  .recipe-heading h4 {
+    display: block;
+    left: 30px;
+  }
+
+  .recipe-imageHolder img {
+    margin-bottom: 10px;
+  }
+
+  .recipe-bottom {
+    padding-bottom: 100px;
+  }
+  .recipe-bottom {
+    margin-left: 10%;
+  }
+
+  .formHolder {
+    width: 600px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  * {
+    font-size: small;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 10px;
+  }
+
+  .footer a {
+    font-size: 10px;
+  }
+
+  .recipe {
+    width: 350px;
+    align-items: 0;
+    flex-direction: column;
+  }
+  .titleDesc {
+    width: 250px;
+    height: 170px;
+  }
+
+  .imageHolder {
+    height: 200px;
+  }
+
+  .recipe-heading {
+    width: 300px;
+    padding-left: 15px;
+  }
+  .recipe-heading h4 {
+    left: 0;
+  }
+
+  .recipe-bottom {
+    margin-left: 10px;
+  }
+
+  .formHolder {
+    width: 300px;
+  }
+}
